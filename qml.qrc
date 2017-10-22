@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>TemperatureController.qml</file>
+        <file>HumidityController.qml</file>
+        <file>VisualPage.qml</file>
+        <file>digital-7.ttf</file>
+        <file>SegmentDisplay.qml</file>
+        <file>NumericPage.qml</file>
+        <file>HourPicker.qml</file>
+    </qresource>
+</RCC>
