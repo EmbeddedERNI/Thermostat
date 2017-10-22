@@ -9,6 +9,12 @@ CircularGauge{
     Label{
         anchors.centerIn: parent
         anchors.verticalCenterOffset: parent.height/4
-        text: qsTr("Humidity") + " %" +  parent.value
+        text: qsTr("Humidity") + " %" +  parent.value.toFixed(2)
+    }
+    Behavior on value {
+        PropertyAnimation{
+            duration: 500
+            easing.type: "InOutCubic"
+        }
     }
 }

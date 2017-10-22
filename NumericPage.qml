@@ -9,6 +9,7 @@ Page{
     id: base
     property double temp: 0
     property double humidity: 0
+    property bool connectedIndicator: false
     GridLayout{
         anchors.fill: parent
         anchors.margins: 10
@@ -30,12 +31,12 @@ Page{
             }
         }
         Rectangle{
-                height: 50
-                width: height
-                radius: height
-                anchors.verticalCenter: parent.verticalCenter
-                color: "red"
-            }
+            height: 50
+            width: height
+            radius: height
+            anchors.verticalCenter: parent.verticalCenter
+            color: base.connectedIndicator? "green" : "red"
+        }
         SegmentDisplay{
             id: temp
             text: "Cº " + base.temp
