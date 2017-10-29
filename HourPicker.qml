@@ -11,7 +11,7 @@ RowLayout{
         id: label
         text: qsTr("Start")
         font.pixelSize: parent.height/2
-        horizontalAlignment: "AlignHCenter"
+        horizontalAlignment: "AlignRight"
         verticalAlignment: "AlignVCenter"
         fontSizeMode: "Fit"
         Layout.fillWidth: true

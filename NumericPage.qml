@@ -11,6 +11,7 @@ Page{
     property double humidity: 0
     property bool connectedIndicator: false
     GridLayout{
+        id: gridLayout
         anchors.fill: parent
         anchors.margins: 10
         columns:2
@@ -30,22 +31,86 @@ Page{
                 }
             }
         }
-        Rectangle{
-            height: 50
-            width: height
-            radius: height
-            anchors.verticalCenter: parent.verticalCenter
-            color: base.connectedIndicator? "green" : "red"
-        }
-        SegmentDisplay{
-            id: temp
-            text: "Cº " + base.temp
-        }
+        //        Rectangle{
+        //            height: 50
+        //            width: height
+        //            radius: height
+        //            anchors.verticalCenter: parent.verticalCenter
+        //            color: base.connectedIndicator? "green" : "red"
+        //        }
         SegmentDisplay{
             Layout.columnSpan: 2
-            id: humidity
-            text: "% " + base.humidity
+            id: temp
+            text: "Cº " + base.temp + " % " + base.humidity
         }
+        //        SegmentDisplay{
+        ////            Layout.columnSpan: 2
+        //            id: humidity
+        //            text: "% " + base.humidity
+        //        }
+        Flow{
+            id: pickerFlow
+            Layout.fillWidth: true
+            //            Layout.fillHeight: true
+            Layout.columnSpan: 2
+            //            flow: Flow.TopToBottom
+            HourPicker{
+                id: startHourPicker
+                text: qsTr("Start")
+                width: parent.width/2
+                height: parent.height
+                hour: 8
+                minute: 0
+            }
+            HourPicker{
+                id: stopHourPicker
+                text: qsTr("Stop")
+                width: parent.width/2
+                height: parent.height
+                hour: 20
+                minute: 0
+            }
+        }
+        states: [
+            State {
+                name: "Vertical"
+                when: base.width < base.height
+                PropertyChanges{
+                    target: pickerFlow
+                    flow: Flow.TopToBottom
+                    Layout.minimumHeight: 200
+                }
+                PropertyChanges{
+                    target: startHourPicker
+                    width: startHourPicker.parent.width
+                    height: startHourPicker.parent.height/2
+                }
+                PropertyChanges{
+                    target: stopHourPicker
+                    width: stopHourPicker.parent.width
+                    height: stopHourPicker.parent.height/2
+                }
+            },
+            State {
+                name: "Horizontal"
+                when: base.width >= base.height
+                PropertyChanges{
+                    target: pickerFlow
+                    flow: Flow.LeftToRight
+                    Layout.minimumHeight: 100
+                }
+                PropertyChanges{
+                    target: startHourPicker
+                    width: startHourPicker.parent.width/2
+                    height: startHourPicker.parent.height
+                }
+                PropertyChanges{
+                    target: stopHourPicker
+                    width: stopHourPicker.parent.width/2
+                    height: stopHourPicker.parent.height
+                }
+            }
+        ]
     }
 
 }

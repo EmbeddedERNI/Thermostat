@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<QmlClient>("QMQTT",1,0,"MQTTClient");
 
     QQmlApplicationEngine engine;
+
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;

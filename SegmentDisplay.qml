@@ -6,15 +6,20 @@ import QtQuick.Controls.Styles 1.4
 
 Label {
 
-    Layout.fillHeight: true
+    //    Layout.fillHeight: true
     Layout.fillWidth: true
     Layout.minimumHeight: 12
     Layout.maximumHeight: 1000
-
-    fontSizeMode: "Fit"
-    font.pixelSize: 1000
+    Layout.preferredHeight: (width / text.length) * metrics.height/metrics.averageCharacterWidth
+    fontSizeMode: "HorizontalFit"
+    font.pixelSize: 500
     minimumPointSize: 12
-horizontalAlignment: Qt.AlignRight
+    horizontalAlignment: Qt.AlignRight
+    FontMetrics{
+        id:metrics
+        font.family: fixedFont.name
+    }
+
     FontLoader { id: fixedFont; source: "qrc:/digital-7.ttf"}
     font.family: fixedFont.name
 

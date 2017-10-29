@@ -11,6 +11,7 @@ ApplicationWindow {
     width: 480
     height: 360
     title: qsTr("Thermostat")
+    visibility: "FullScreen"
     id: base
     property string groupId: "/group1"
     MQTTClient{
@@ -42,27 +43,6 @@ ApplicationWindow {
 
     SwipeView{
         anchors.fill: parent
-        Page{
-            Column{
-                anchors.fill: parent
-                anchors.margins: 20
-                HourPicker{
-                    text: qsTr("Start")
-                    width: parent.width
-                    height: parent.height/2
-                    hour: 8
-                    minute: 0
-                }
-                HourPicker{
-                    text: qsTr("Stop")
-                    width: parent.width
-                    height: parent.height/2
-                    hour: 20
-                    minute: 0
-                }
-
-            }
-        }
 
         NumericPage{
             temp: base.temperature
