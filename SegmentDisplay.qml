@@ -9,7 +9,7 @@ Label {
     //    Layout.fillHeight: true
     Layout.fillWidth: true
     Layout.minimumHeight: 12
-    Layout.maximumHeight: 1000
+//    Layout.maximumHeight: 1000
     Layout.preferredHeight: (width / text.length) * metrics.height/metrics.averageCharacterWidth
     fontSizeMode: "HorizontalFit"
     font.pixelSize: 500

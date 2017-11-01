@@ -11,7 +11,7 @@ ApplicationWindow {
     width: 480
     height: 360
     title: qsTr("Thermostat")
-    visibility: "FullScreen"
+//    visibility: "FullScreen"
     id: base
     property string groupId: "/group1"
     MQTTClient{
